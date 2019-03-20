@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int cari=7;
+
+void bsearch(int data[], int kiri, int kanan)
+{
+	int tengah;
+	if (kiri<kanan)
+	{
+		cout << kiri << " " << kanan << "\n";
+		tengah= (kiri+kanan)/2;
+		if (data[tengah]>cari)
+		{
+			bsearch(data,kiri,tengah-1);
+		}
+		else if (data[tengah]<cari)
+		{
+			bsearch(data,tengah+1,kanan);
+		}
+		else
+		{
+			cout << "\ndata ketemu di indeks ke : "  << tengah;
+		}
+	}
+	else
+	{
+		cout << "\ndata tidak ketemu : ";
+	}
+}
+int main(int argc, char **argv)
+{
+	int data[8]={1,2,3,4,5,6,7,8},banyak_data,kiri,kanan;
+	banyak_data=8;
+	kiri=0;
+	kanan=banyak_data-1;
+	bsearch(data,kiri,kanan);
+	return 0;
+}
